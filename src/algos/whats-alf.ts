@@ -30,7 +30,7 @@ export const handler = async (ctx: AppContext) => {
             return { feed: [] };
         }
 
-        const TARGET_TEXT = '#忍野にゃんこの25秋アニメ感想';
+        const TARGET_TEXT = '忍野にゃんこの25秋アニメ感想';
 
         const filteredPosts = posts.map((item: any) => {
             const isNotRepost = !item.reason;
