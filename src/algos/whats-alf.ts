@@ -26,6 +26,10 @@ export const handler = async (ctx: AppContext) => {
         });
 
         const posts = authorFeedRes.data.feed;
+        if (!posts || posts.length === 0) {
+            console.log('getAuthorFeed returned empty.');
+            return { feed: [] };
+        }
 
         const TARGET_TEXT = 'おはにゃんこ';
         const filteredPosts = posts.filter((item: any) => {
@@ -37,6 +41,7 @@ export const handler = async (ctx: AppContext) => {
 
             return isNotRepost && containsTargetText;
         });
+        console.log(filteredPosts.length && '個のpostを返しました。')
 
         const feedItems: SkeletonFeedPost[] = filteredPosts.map((item: any) => {
             return {
