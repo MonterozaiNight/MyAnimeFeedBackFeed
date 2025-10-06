@@ -17,7 +17,7 @@ const run = async () => {
   // A short name for the record that will show in urls
   // Lowercase with no spaces.
   // Ex: whats-hot
-  const recordName = '25AutumnAnime'
+  const recordName = 'whats-alf'
 
   // A display name for your feed
   // Ex: What's Hot
