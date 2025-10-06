@@ -2,6 +2,7 @@ import { AppContext } from '../config'
 import { OutputSchema } from "../lexicon/types/app/bsky/feed/getFeedSkeleton"
 import { SkeletonFeedPost } from "../lexicon/types/app/bsky/feed/defs"
 import { AtpAgent } from "@atproto/api"
+import type { Record } from '@atproto/api/dist/client/types/app/bsky/feed/post'
 
 export const shortname = 'whats-alf'
 
@@ -21,18 +22,13 @@ export const handler = async (ctx: AppContext) => {
         
         const authorFeedRes = await agent.api.app.bsky.feed.getAuthorFeed({
             actor: ctx.cfg.publisherDid,
-            limit: 100
+            limit: 50
         });
 
         const posts = authorFeedRes.data.feed;
-        if (!posts || posts.length === 0) {
-            console.log('No posts found for the author, or getAuthorFeed returned empty.');
-            return { feed: [] };
-        }
 
-        const TARGET_TEXT = '忍野にゃんこの25秋アニメ感想';
-
-        const filteredPosts = posts.map((item: any) => {
+        const TARGET_TEXT = '#忍野にゃんこの25秋アニメ感想';
+        const filteredPosts = posts.filter((item: any) => {
             const isNotRepost = !item.reason;
 
             const postText = item.post.record?.text;
