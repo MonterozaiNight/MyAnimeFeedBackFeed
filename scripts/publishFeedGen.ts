@@ -17,15 +17,15 @@ const run = async () => {
   // A short name for the record that will show in urls
   // Lowercase with no spaces.
   // Ex: whats-hot
-  const recordName = 'whats-alf'
+  const recordName = '25AutumnAnime'
 
   // A display name for your feed
   // Ex: What's Hot
-  const displayName = 'My latest 50 posts feed'
+  const displayName = '忍野にゃんこの25秋アニメ感想フィード'
 
   // (Optional) A description of your feed
   // Ex: Top trending content from the whole network
-  const description = 'My latest 50 posts'
+  const description = '忍野にゃんこ専用フィードです。2025年秋アニメで視聴しているアニメの感想フィードです。'
 
   // (Optional) The path to an image to be used as your feed's avatar
   // Ex: ~/path/to/avatar.jpeg
