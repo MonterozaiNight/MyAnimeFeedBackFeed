@@ -22,7 +22,8 @@ export const handler = async (ctx: AppContext) => {
         
         const authorFeedRes = await agent.api.app.bsky.feed.getAuthorFeed({
             actor: ctx.cfg.publisherDid,
-            filter: 'posts_with_replies'
+            limit: 100,
+            filter: 'posts_no_replies'
         });
 
         const posts = authorFeedRes.data.feed;
