@@ -27,7 +27,7 @@ export const handler = async (ctx: AppContext) => {
 
         const posts = authorFeedRes.data.feed;
 
-        const TARGET_TEXT = '#忍野にゃんこの25秋アニメ感想';
+        const TARGET_TEXT = 'おはにゃんこ';
         const filteredPosts = posts.filter((item: any) => {
             const isNotRepost = !item.reason;
 
