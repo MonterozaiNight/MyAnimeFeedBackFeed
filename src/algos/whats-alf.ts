@@ -23,7 +23,7 @@ export const handler = async (ctx: AppContext) => {
         const authorFeedRes = await agent.api.app.bsky.feed.getAuthorFeed({
             actor: ctx.cfg.publisherDid,
             limit: 50,
-            filter: 'posts_no_replies'
+            filter: 'posts_with_replies'
         });
 
         const posts = authorFeedRes.data.feed;
@@ -31,9 +31,8 @@ export const handler = async (ctx: AppContext) => {
             console.log('getAuthorFeed returned empty.');
             return { feed: [] };
         }
-        console.log('合計フィード数：', posts.length);
 
-        const TARGET_TEXT = 'おはにゃんこ';
+        const TARGET_TEXT = '#忍野にゃんこの25秋アニメ感想';
         const filteredPosts = posts.filter((item: any) => {
             const isNotRepost = !item.reason;
 
@@ -43,7 +42,6 @@ export const handler = async (ctx: AppContext) => {
 
             return isNotRepost && containsTargetText;
         });
-        console.log('合計post数:', filteredPosts.length)
 
         const feedItems: SkeletonFeedPost[] = filteredPosts.map((item: any) => {
             return {
