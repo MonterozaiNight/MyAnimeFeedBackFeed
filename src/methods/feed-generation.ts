@@ -29,7 +29,7 @@ export default function (server: Server, ctx: AppContext) {
      * )
      */
 
-    const body = await algo(ctx)
+    const body = await algo(ctx, params)
     return {
       encoding: 'application/json',
       body: body,
