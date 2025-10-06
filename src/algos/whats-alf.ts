@@ -22,7 +22,8 @@ export const handler = async (ctx: AppContext) => {
         
         const authorFeedRes = await agent.api.app.bsky.feed.getAuthorFeed({
             actor: ctx.cfg.publisherDid,
-            limit: 50
+            limit: 50,
+            filter: 'posts_no_replies'
         });
 
         const posts = authorFeedRes.data.feed;
@@ -30,6 +31,7 @@ export const handler = async (ctx: AppContext) => {
             console.log('getAuthorFeed returned empty.');
             return { feed: [] };
         }
+        console.log('合計フィード数：', posts.length);
 
         const TARGET_TEXT = 'おはにゃんこ';
         const filteredPosts = posts.filter((item: any) => {
@@ -41,7 +43,7 @@ export const handler = async (ctx: AppContext) => {
 
             return isNotRepost && containsTargetText;
         });
-        console.log(filteredPosts.length && '個のpostを返しました。')
+        console.log('合計post数:', filteredPosts.length)
 
         const feedItems: SkeletonFeedPost[] = filteredPosts.map((item: any) => {
             return {
