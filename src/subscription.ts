@@ -90,7 +90,7 @@ export class MyAnimeFeedbackSubscription {
         break; 
       }
 
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise(resolve => setTimeout(resolve, 3000));
     }
 
     console.log("[INFO] 登録データ総数は" + rowCount + "件です。");
