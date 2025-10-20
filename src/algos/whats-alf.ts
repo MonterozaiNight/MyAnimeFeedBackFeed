@@ -7,7 +7,6 @@ import { InvalidRequestError } from '@atproto/xrpc-server'
 export const shortname = 'whats-alf'
 
 export const handler = async (ctx: AppContext, params: QueryParams) => {
-    console.log('--- Custom Feed Handler (my-25AutumnAnime-posts) Called ---');
 
     let builder = ctx.db
         .selectFrom('post')
@@ -39,7 +38,6 @@ export const handler = async (ctx: AppContext, params: QueryParams) => {
         cursor = `${new Date(last.indexedAt).getTime()}::${last.cid}`
     }
 
-    console.log('--- Custom Feed Handler Finished ---');
     return {
         cursor,
         feed
