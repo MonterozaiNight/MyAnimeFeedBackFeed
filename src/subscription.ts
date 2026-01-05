@@ -36,8 +36,8 @@ export class MyAnimeFeedbackSubscription {
       password: process.env.FEEDGEN_APP_PASSWORD || ''
     });
 
-    const TARGET_TEXT = '#忍野にゃんこの25秋アニメ感想'
-    const TARGET_DATE = new Date('2025-09-26T00:00:00.000Z');
+    const TARGET_TEXT = '#忍野にゃんこの26冬アニメ感想'
+    const TARGET_DATE = new Date('2026-01-06T01:22:00.000Z');
     let cursor: string | undefined = undefined;
     while(true) {
       const listRecordsRes = await this.agent.api.com.atproto.repo.listRecords({
