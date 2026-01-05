@@ -1,7 +1,7 @@
 {
   "name": "MyAnimeFeedBackFeed",
   "version": "1.0.0",
-  "description": "忍野にゃんこの25秋アニメ感想フィードです",
+  "description": "忍野にゃんこの26冬アニメ感想フィードです",
   "main": "dist/index.js",
   "scripts": {
     "publishFeed": "ts-node scripts/publishFeedGen.ts",
