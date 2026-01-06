@@ -38,7 +38,6 @@ export const handler = async (ctx: AppContext, params: QueryParams) => {
         cursor = `${new Date(last.indexedAt).getTime()}::${last.cid}`
     }
 
-    console.log(feed.length + "件の投稿を登録しました。")
     return {
         cursor,
         feed
