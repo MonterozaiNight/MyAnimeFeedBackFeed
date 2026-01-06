@@ -37,7 +37,7 @@ export class MyAnimeFeedbackSubscription {
     });
 
     const TARGET_TEXT = '#忍野にゃんこの26冬アニメ感想'
-    const TARGET_DATE = new Date('2026-01-06T01:00:00.000Z');
+    const TARGET_DATE = new Date('2026-01-06T00:00:00.000Z');
     let cursor: string | undefined = undefined;
     while(true) {
       const listRecordsRes = await this.agent.api.com.atproto.repo.listRecords({
