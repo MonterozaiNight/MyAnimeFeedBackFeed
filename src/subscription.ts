@@ -57,7 +57,7 @@ export class MyAnimeFeedbackSubscription {
       for(const record of records) {
         const postRecordValue = record.value as Record<string, any>;
         const postDate = new Date(postRecordValue.createdAt);
-        console.log("投稿日取得")
+        console.log("投稿日取得:"+ postDate)
 
         if (postDate >= TARGET_DATE) {
           console.log("投稿をpostテーブルに登録前")
